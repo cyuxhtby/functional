@@ -10,4 +10,4 @@
 
 ### Concepts
 
-- **`dotted pair`**: two values separated by a dot (a . 2) used when the second argument to `cons` is not a list
+dotted pair: two values separated by a dot, eg. (a . 2)
