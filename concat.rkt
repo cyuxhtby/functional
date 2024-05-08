@@ -13,4 +13,9 @@
     )
 )
 
-(concat '(1 2 3 4 5) '(6 7 8 9)) ;returns '(1 2 3 4 5 6 7 8 9)
+(define (concat-no-lambda l1 l2)
+    (cond
+        ((null? l1) l2)
+        (else (cons (car l1) (concat-no-lambda (cdr l1) l2)))))
+
+(concat-no-lambda '(1 2 3 4 5) '(6 7 8 9)) ;returns '(1 2 3 4 5 6 7 8 9)
