@@ -29,6 +29,24 @@ instance Monad Optional where
     return = Some
 
 -- Lets now use the `Optional` monad to handle nullable strings
+-- The funciton takes in a `Maybe String` type and converts it to an `Optional String`
 handleNull :: Maybe String -> Optional String
-handleNull (Just x) = Some x 
-handleNull Nothing = None
+handleNull (Just x) = Some x -- `Just` is a constructor for the `Maybe` type, used to wrap the value `x`. This converts it to `Some`.
+handleNull Nothing = None --`Nothing` is a constructor for the `Maybe` type, representing the absence of a value. This converts it to `None`.
+
+
+main :: IO ()
+main = do
+    let name1 = Just "Alice"
+    let name2 = Nothing
+    
+    let result1 = handleNull name1
+    let result2 = handleNull name2
+    
+    putStrLn $ "Result 1: " ++ show result1
+    putStrLn $ "Result 2: " ++ show result2 
+    
+    
+-- Output:
+-- Result 1: Some "Alice"
+-- Result 2: None
